@@ -1,8 +1,12 @@
 <template>
   <div id="app">
-    <h1>用户帐号查询</h1>
-	<textarea v-model="usernames" placeholder="用户帐号"></textarea>
-	<button @click="findallusers">查询</button>
+    <h3>用户帐号查询</h3>
+	<div>
+		<textarea v-model="usernames" placeholder="用户帐号"></textarea>
+	</div>
+	<div>
+		<button @click="findallusers">查询</button>
+	</div>
     <!-- <HelloWorld :userids="usernames"/> -->
 	<HelloWorld :userids="userinfo"/>
 	
@@ -39,7 +43,8 @@ export default {
 		
 		// axios.default.baseURL='http://localhost:8080/api'
 		for(let userid of username){
-			reqList.push(axios.get(`http://localhost:8080/api/username/${userid}`))
+			// reqList.push(axios.get(`http://localhost:8080/api/username/${userid}`))
+			reqList.push(axios.get(`http://192.168.108.102:8984/username/${userid}`))
 			resList.push(`post${userid}`)
 		}
 		
@@ -76,5 +81,9 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+textarea {
+	width:  300px;
+	height: 100px;
 }
 </style>

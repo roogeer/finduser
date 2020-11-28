@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <h3>查询结果</h3>
+    <h2>查询结果</h2>
 	<table class="table_head" border="1px" align="center">
 		<thead>
 			<tr>
@@ -18,15 +18,20 @@
 			</tr>
 		</thead>
 		<tbody>
+			<template v-for="(value, index) in users">
+				<ListItem :index= index+1 :user=value :key=index></ListItem>
+			</template>
 		</tbody>
 	</table>
   </div>
 </template>
 
 <script>
-	
+import ListItem  from './ListItem.vue'
+
 export default {
   name: 'UserList',
+  components:{ListItem},
   props: {
 	users: Array
   },
