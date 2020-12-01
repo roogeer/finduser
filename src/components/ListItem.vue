@@ -1,14 +1,21 @@
 <template>
 	<!-- <fragment> -->
-		<tr>
+		<tr :style="{backgroundColor:trbackcolor}">
 			<td>{{index}}</td>
-			<td>{{user.username}}</td>
+			<td>{{user.info.username}}</td>
+			<td>{{user.info.userip}}</td>
+			<td>{{user.info.qos}}</td>
+			
 			<td>{{user.info.oltname}}</td>
 			<td>{{user.info.oltip}}</td>
-			<td>{{user.info.onu}}</td>
 			<td>{{user.info.pevlan}}/{{user.info.cevlan}}</td>
-			<td>{{user.info.nasportid}}</td>
-			<td>{{user.info.detail}}</td>
+			<td>{{user.info.onu}}</td>
+			
+			<td>{{user.info.brasname}}</td>
+			<td>{{user.info.brasip}}</td>
+			<td>{{user.info.interface}}</td>
+	
+			<td align="left">{{user.info.detail}}</td>
 		</tr>
 	<!-- </fragment> -->
 </template>
@@ -21,7 +28,8 @@
 		// components: { Fragment },
 		props:{
 			index: Number,
-			user: Object
+			user: Object,
+			trbackcolor: String
 		}
 	}
 </script>

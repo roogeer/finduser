@@ -1,11 +1,11 @@
 <template>
   <div id="app">
-    <h3>用户帐号查询</h3>
+    <h3>用户帐号查询 v1.0</h3>
 	<div>
 		<textarea v-model="usernames" placeholder="用户帐号"></textarea>
 	</div>
 	<div>
-		<button @click="findallusers">查询</button>
+		<button v-bind:disabled="isButtonDisabled" @click="findallusers">{{btntext}}</button>
 	</div>
     <!-- <HelloWorld :userids="usernames"/> -->
 	<HelloWorld :userids="userinfo"/>
@@ -24,6 +24,8 @@ export default {
   },
   data:function(){
 	return{
+		isButtonDisabled:false,
+		btntext: '查 询',
 		usernames:'',
 		userinfo:[]
 	}
@@ -54,6 +56,11 @@ export default {
 		}))
 	},
 	findallusers:async function(){
+		
+		// 关闭查询按钮
+		this.isButtonDisabled = true
+		this.btntext = '正在查询，请稍后...'
+		
 	// async findallusers(){
 		let responses = await this.getusers()
 		// console.log(responses.length)
@@ -67,6 +74,10 @@ export default {
 				this.userinfo.push(datainfo)
 			}
 		}
+		
+		// 开启查询按钮
+		this.isButtonDisabled = false
+		this.btntext = '查 询'
 	}
 	
   }

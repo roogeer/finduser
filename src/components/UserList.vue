@@ -5,21 +5,34 @@
 		<thead>
 			<tr>
 				<th width="30px" rowspan="2">SN</th>
-				<th width="108px" rowspan="2">用户帐号</th>
-				<th width="384px" colspan="3">OLT</th>
-				<th rowspan="2">Vlan</th>
-				<th rowspan="2">nasportid</th>
+				<th width="340px" colspan="3">用户</th>
+				<th width="448px" colspan="4">OLT</th>
+				<th width="368px" colspan="3">BRAS</th>
 				<th rowspan="2">备注</th>
 			</tr>
 			<tr>
+				<th width="120px">帐号</th>
+				<th width="120px">IP</th>
+				<th width="100px">Qos</th>
+				
 				<th width="128px">名称</th>
-				<th width="128px">IP</th>
-				<th width="128px">ONU</th>
+				<th width="120px">IP</th>
+				<th width="100px">Vlan</th>
+				<th width="100px">ONU</th>
+				
+				<th width="128px">名称</th>
+				<th width="120px">IP</th>
+				<th width="120px">接口</th>
 			</tr>
 		</thead>
 		<tbody>
 			<template v-for="(value, index) in users">
-				<ListItem :index= index+1 :user=value :key=index></ListItem>
+				<template v-if="value.info.userip.length>1">
+					<ListItem :index= index+1 :user=value trbackcolor="#55ff7f" :key=index></ListItem>
+				</template>
+				<template v-else>
+					<ListItem :index= index+1 :user=value trbackcolor="#ffffff" :key=index></ListItem>
+				</template>
 			</template>
 		</tbody>
 	</table>
