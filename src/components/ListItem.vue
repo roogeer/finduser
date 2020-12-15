@@ -4,6 +4,7 @@
 			<td>{{index}}</td>
 			<td>{{user.info.username}}</td>
 			<td>{{user.info.userip}}</td>
+			<td>{{user.info.pool}}</td>
 			<td>{{user.info.qos}}</td>
 			
 			<td>{{user.info.oltname}}</td>
@@ -14,6 +15,9 @@
 			<td>{{user.info.brasname}}</td>
 			<td>{{user.info.brasip}}</td>
 			<td>{{user.info.interface}}</td>
+			
+			<td>{{user.info.hillstone}}</td>
+			<td>{{user.info.panabit}}</td>
 	
 			<td align="left">{{user.info.detail}}</td>
 		</tr>

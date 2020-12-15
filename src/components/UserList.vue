@@ -5,24 +5,29 @@
 		<thead>
 			<tr>
 				<th width="30px" rowspan="2">SN</th>
-				<th width="340px" colspan="3">用户</th>
-				<th width="448px" colspan="4">OLT</th>
+				<th width="400px" colspan="4">用户</th>
+				<th width="460px" colspan="4">OLT</th>
 				<th width="368px" colspan="3">BRAS</th>
-				<th rowspan="2">备注</th>
+				<th width="200px" colspan="2">NAT</th>
+				<th width="100px" rowspan="2">备注</th>
 			</tr>
 			<tr>
 				<th width="120px">帐号</th>
 				<th width="120px">IP</th>
+				<th width="60px">Pool</th>
 				<th width="100px">Qos</th>
 				
-				<th width="128px">名称</th>
+				<th width="180px">名称</th>
 				<th width="120px">IP</th>
 				<th width="100px">Vlan</th>
-				<th width="100px">ONU</th>
+				<th width="60px">ONU</th>
 				
 				<th width="128px">名称</th>
 				<th width="120px">IP</th>
 				<th width="120px">接口</th>
+				
+				<th width="100px">Hillstone</th>
+				<th width="100px">Panabit</th>				
 			</tr>
 		</thead>
 		<tbody>

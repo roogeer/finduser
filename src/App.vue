@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h3>用户帐号查询 v1.0</h3>
+    <h3>用户帐号查询 v2.0</h3>
 	<div>
 		<textarea v-model="usernames" placeholder="用户帐号"></textarea>
 	</div>
@@ -34,7 +34,7 @@ export default {
 	getusers:function(){
 		let username = this.usernames.split(/[\n, ]/)
 		username = username.filter(s=>{return s && s.trim()})
-		console.log(username);
+		// console.log(username);
 		
 		
 		// 准备通过axios发起查询请求
@@ -63,13 +63,11 @@ export default {
 		
 	// async findallusers(){
 		let responses = await this.getusers()
-		// console.log(responses.length)
 		// 清除结果数组,备用
 		this.userinfo.splice(0)
 		for (let i = 0; i < responses.length; i++) {
 			if (responses[i] && responses[i].status === 200) {
 				let datainfo = JSON.parse(responses[i].data)
-				// console.log(`${datainfo['username']} ${datainfo['info']['pevlan']}/${datainfo['info']['cevlan']} ${datainfo["info"]["oltname"]} ${datainfo["info"]["onu"]}`)
 				console.log(datainfo)
 				this.userinfo.push(datainfo)
 			}
