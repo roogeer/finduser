@@ -5,15 +5,15 @@
 		<thead>
 			<tr>
 				<th width="30px" rowspan="2">SN</th>
-				<th width="400px" colspan="4">用户</th>
+				<th width="436px" colspan="4">用户</th>
 				<th width="460px" colspan="4">OLT</th>
-				<th width="368px" colspan="3">BRAS</th>
+				<th width="388px" colspan="3">BRAS</th>
 				<th width="200px" colspan="2">NAT</th>
 				<th width="100px" rowspan="2">备注</th>
 			</tr>
 			<tr>
-				<th width="120px">帐号</th>
-				<th width="120px">IP</th>
+				<th width="148px">帐号</th>
+				<th width="128px">IP</th>
 				<th width="60px">Pool</th>
 				<th width="100px">Qos</th>
 				
@@ -22,7 +22,7 @@
 				<th width="100px">Vlan</th>
 				<th width="60px">ONU</th>
 				
-				<th width="128px">名称</th>
+				<th width="148px">名称</th>
 				<th width="120px">IP</th>
 				<th width="120px">接口</th>
 				
@@ -32,12 +32,12 @@
 		</thead>
 		<tbody>
 			<template v-for="(value, index) in users">
-				<template v-if="value.info.userip.length>1">
-					<ListItem :index= index+1 :user=value trbackcolor="#55ff7f" :key=index></ListItem>
-				</template>
-				<template v-else>
-					<ListItem :index= index+1 :user=value trbackcolor="#ffffff" :key=index></ListItem>
-				</template>
+					<template v-if="value.info.userip.length>1">
+						<ListItem :index= index+1 :user=value trbackcolor="#55ff7f" :key=index></ListItem>
+					</template>
+					<template v-else>
+						<ListItem :index= index+1 :user=value trbackcolor="#ffffff" :key=index></ListItem>
+					</template>
 			</template>
 		</tbody>
 	</table>
@@ -88,4 +88,3 @@ a {
   color: #42b983;
 }
 </style>
-
