@@ -30,7 +30,7 @@
 				<th width="100px">Panabit</th>				
 			</tr>
 		</thead>
-		<tbody>
+		<tbody is="transition-group" name="list">
 			<template v-for="(value, index) in users">
 					<template v-if="value.info.userip.length>1">
 						<ListItem :index= index+1 :user=value trbackcolor="#55ff7f" :key=index></ListItem>
@@ -58,11 +58,20 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.list-enter-active {
+	transition: all 1.5s;
+}
+
+.list-enter {
+	opacity: 0;
+	transform: translateY(32px);
+}
+	
 .table_head {
 	border-collapse: collapse;
 	margin: 10px auto;
 	height: 100%;
-	width:  1500px;
+	width:  1620px;
 	padding: 0;
 	/*vertical-align: bottom;*/
 	}
@@ -72,7 +81,7 @@ th {
 	background-color:#337ab7;
 	color:#FFFFFF;
 }
-	
+
 h3 {
   margin: 40px 0 0;
 }

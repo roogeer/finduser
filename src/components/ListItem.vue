@@ -4,7 +4,7 @@
 			<td>{{index}}</td>
 			<td>{{user.info.username}}</td>
 			<td>{{user.info.userip}}</td>
-			<td>{{user.info.pool}}</td>
+			<td :class="user.info.pool">{{user.info.pool}}</td>
 			<td>{{user.info.qos}}</td>
 			
 			<td>{{user.info.oltname}}</td>
@@ -38,5 +38,21 @@
 	}
 </script>
 
-<style>
+<style scoped>
+	.vip1 {
+		background-color:darksalmon
+	}
+	.vip3 {
+		background-color:crimson
+	}
+	.business {
+		background-color:#007bff;
+		color:gainsboro
+	}
+	.game {
+		background-color:gold;
+	}
+	.iptv {
+		background-color:cyan
+	}
 </style>
