@@ -1,11 +1,11 @@
 <template>
   <div class="hello">
     <h2>查询结果</h2>
-	<table class="table_head" border="1px" align="center">
+	<table class="table_head" align="center">
 		<thead>
 			<tr>
 				<th width="30px" rowspan="2">SN</th>
-				<th width="436px" colspan="4">用户</th>
+				<th width="450px" colspan="4">用户</th>
 				<th width="460px" colspan="4">OLT</th>
 				<th width="388px" colspan="3">BRAS</th>
 				<th width="200px" colspan="2">NAT</th>
@@ -14,7 +14,7 @@
 			<tr>
 				<th width="148px">帐号</th>
 				<th width="128px">IP</th>
-				<th width="60px">Pool</th>
+				<th width="74px">Pool</th>
 				<th width="100px">Qos</th>
 				
 				<th width="180px">名称</th>
@@ -36,7 +36,7 @@
 						<ListItem :index= index+1 :user=value trbackcolor="#55ff7f" :key=index></ListItem>
 					</template>
 					<template v-else>
-						<ListItem :index= index+1 :user=value trbackcolor="#ffffff" :key=index></ListItem>
+						<ListItem :index= index+1 :user=value trbackcolor="#C0C0C0" :key=index></ListItem>
 					</template>
 			</template>
 		</tbody>
@@ -68,10 +68,12 @@ export default {
 }
 	
 .table_head {
-	border-collapse: collapse;
+	/*border-collapse: collapse;*/
+	border-collapse:separate;
+	border-spacing:1px;
 	margin: 10px auto;
 	height: 100%;
-	width:  1620px;
+	width:  1648px;
 	padding: 0;
 	/*vertical-align: bottom;*/
 	}

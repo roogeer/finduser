@@ -43,7 +43,10 @@
 		background-color:darksalmon
 	}
 	.vip3 {
-		background-color:crimson
+		background-color:#ff8040;
+	}
+	.vip10 {
+		background-color:#f80000;
 	}
 	.business {
 		background-color:#007bff;

@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h3>用户帐号查询 v5.0</h3>
+    <h3>用户帐号查询 v6.0</h3>
 	<div>
 		<textarea v-model="usernames" placeholder="用户帐号"></textarea>
 	</div>
