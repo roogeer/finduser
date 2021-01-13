@@ -32,7 +32,7 @@
 		</thead>
 		<tbody is="transition-group" name="list">
 			<template v-for="(value, index) in users">
-					<template v-if="value.info.userip.length>1">
+					<template v-if="value.info.userip.length>1 && value.info.username.length>1">
 						<ListItem :index= index+1 :user=value trbackcolor="#55ff7f" :key=index></ListItem>
 					</template>
 					<template v-else>

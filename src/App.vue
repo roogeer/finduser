@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <h3>用户帐号查询 v6.0</h3>
+    <h3>用户帐号查询 v7.0</h3>
+	<!-- 	Time:	2021.01.13
+			update: ip不在线，可以查询该ip穿越的nat设备信息 -->
 	<div>
 		<textarea v-model="usernames" placeholder="用户帐号"></textarea>
 	</div>
