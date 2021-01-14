@@ -91,6 +91,8 @@ def getUsername(userip):
         # 到这里用户不在线，但ip有效，可根据ip，brasid，查询该ip所穿越的nat设备信息
         hillstone, panabit = getUseripCrossHillstonePa(
             userip, brasid).split('_')
+        # 判断ip所属的地址池
+        poolName = getUseripPoolNameFromAggregation(userip)
         # return ''
         return {
             'success': False,
@@ -108,7 +110,7 @@ def getUsername(userip):
                 'panabit': panabit,
                 'pevlan': '-',
                 'pon': '-',
-                'pool': '-',
+                'pool': poolName,
                 'qos': '-',
                 'userip': userip,
                 'username': '-'
@@ -273,6 +275,18 @@ def GetRawInfo(ipAddress, loginName, loginPassword, cmd_list):
 def getUseripPoolName(Userip, Brasid):
     r = redis.Redis(host='127.0.0.1', port=6379, db=0)
     useriponbras = json.loads(r.get(f'userip_{Brasid}').decode('utf-8'))
+    # print(useriponbras)
+    for pool, ips in useriponbras.items():
+        for ip in ips:
+            if IP(Userip) in IP(ip):
+                return pool
+    return '-'
+
+
+def getUseripPoolNameFromAggregation(Userip):
+    r = redis.Redis(host='127.0.0.1', port=6379, db=0)
+    useriponbras = json.loads(
+        r.get(f'useriponbras_aggregation').decode('utf-8'))
     # print(useriponbras)
     for pool, ips in useriponbras.items():
         for ip in ips:
