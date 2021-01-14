@@ -92,7 +92,8 @@ def getUsername(userip):
         hillstone, panabit = getUseripCrossHillstonePa(
             userip, brasid).split('_')
         # 判断ip所属的地址池
-        poolName = getUseripPoolNameFromAggregation(userip)
+        # poolName = getUseripPoolNameFromAggregation(userip)
+        poolName = getUseripPoolName(userip, brasid)
         # return ''
         return {
             'success': False,
@@ -283,16 +284,16 @@ def getUseripPoolName(Userip, Brasid):
     return '-'
 
 
-def getUseripPoolNameFromAggregation(Userip):
-    r = redis.Redis(host='127.0.0.1', port=6379, db=0)
-    useriponbras = json.loads(
-        r.get(f'useriponbras_aggregation').decode('utf-8'))
-    # print(useriponbras)
-    for pool, ips in useriponbras.items():
-        for ip in ips:
-            if IP(Userip) in IP(ip):
-                return pool
-    return '-'
+# def getUseripPoolNameFromAggregation(Userip):
+#     r = redis.Redis(host='127.0.0.1', port=6379, db=0)
+#     useriponbras = json.loads(
+#         r.get(f'useriponbras_aggregation').decode('utf-8'))
+#     # print(useriponbras)
+#     for pool, ips in useriponbras.items():
+#         for ip in ips:
+#             if IP(Userip) in IP(ip):
+#                 return pool
+#     return '-'
 
 
 def GetIpInfo(RawInfo, RegExp4IpQos, BrasName, BrasIp, Brasid):
