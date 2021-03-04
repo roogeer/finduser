@@ -9,6 +9,7 @@ import json
 from IPy import IP, IPSet
 import redis
 import logging
+import time
 
 
 def getUseripFromBras(brasName):
@@ -92,6 +93,7 @@ def getUseripFromBras(brasName):
             # print(temp_list[0], temp_list[1])
             pool_address[pool_network[0]].append(ipaddress)
 
+    pool_address['time'] = time.strftime('%m-%d %H:%M', time.localtime())
     return pool_address
 
 
