@@ -179,6 +179,7 @@ def getBrasNameFromIP(userip):
     for key in keys:
         # print(key)
         dic_ip_pool = json.loads(r.get(key).decode('utf-8'))
+        del dic_ip_pool['time']
         for poolName, ips in dic_ip_pool.items():
             for ip in ips:
                 if IP(userip).overlaps(ip):
